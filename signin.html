@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In Page</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			display: block;
+			margin-bottom: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			width: 100%;
+			max-width: 400px;
+			font-size: 16px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			border-radius: 5px;
+			background-color: #3498db;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+			width: 100%;
+			max-width: 400px;
+		}
+		input[type="submit"]:hover {
+			background-color: #2980b9;
+		}
+		.error {
+			color: red;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+    <form action="signin.php" method="POST">
+		<h1>Sign In</h1>
+		<form method="post" onsubmit="return validateForm()">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+			<span id="email-error" class="error"></span>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+			<label for="confirm-password">Confirm Password:</label>
+			<input type="password" id="confirm-password" name="confirm-password" required>
+			<span id="password-error" class="error"></span>
+			<input type="submit" value="Sign In">
+		</form>
+	</form>
+	<script>
+		function validateForm() {
+			// Get the values of the email and password fields
+			var email = document.getElementById('email').value;
+			var password = document.getElementById('password').value;
+			var confirmPassword = document.getElementById('confirm-password').value;
+
+			// Validate the email format
+			var emailRegex = /^\S+@\S+\.\S+$/;
+			if (!emailRegex.test(email)) {
+				document.getElementById('email-error').innerHTML = 'Please enter a valid email address.';
+				return false;
+			} else {
+				document.getElementById('email-error').innerHTML = '';
+			}
+
+			// Check if the password and confirm password fields match
+			if (password !== confirmPassword) {
+				document.getElementById('password-error').innerHTML = 'The password and confirm password fields do not match.';
+				return false;
+			} else {
+				document.getElementById('password-error').innerHTML = '';
+			}
+
+			// If all the fields are valid, return true to submit the form
+			return true;
+		}
+	</script>
+</body>
+</html>
