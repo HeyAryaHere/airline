@@ -12,7 +12,7 @@ if (!$conn) {
 // Retrieve user details from database
 $email = $_POST["email"];
 $password = $_POST["password"];
-$sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
 	// User found, redirect to home page

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // Loop through the results and display them
         while($row = $result->fetch_assoc()) {
             echo "<p>Flight from " . $row["from_user"] . " to " . $row["to_user"] . " on " . $row["Date"] . " is available.</p>";
-            echo "<a href='book_flight.php?from=" . $row["from_user"] . "&to=" . $row["to_user"] . "&Date=" . $row["Date"] . "'>Book Now</a>";
+            echo "<a href='booknow.php?from=" . $row["from_user"] . "&to=" . $row["to_user"] . "&Date=" . $row["Date"] . "'>Book Now</a>";
         }
     } else {
         echo "No flights found.";
