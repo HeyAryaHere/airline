@@ -4,7 +4,7 @@ flight-management-system
 To use this repo
   1) Install XAMPP or WAMPP.
   2) Open XAMPP Control panal and start [apache] and [mysql] .
-  3) Download project from github(https://github.com/HeyAryaHere/airlinehttps://github.com/HeyAryaHere/airline)
+  3) Download project from github(https://github.com/HeyAryaHere/airline)
     OR follow gitbash commands
       i>cd C:\xampp\htdocs\
       ii>git clone 
